@@ -36,7 +36,6 @@ Laboratorio 2/
 │   │   ├── __main__.py                           # Punto de entrada del módulo
 │   │   ├── DataAnalysis.py                       # Clase para análisis exploratorio (EDA)
 │   │   ├── DataTransformer.py                    # Clase para limpieza y transformación de datos
-│   │   └── RegresionLogistica.py                 # Clase auxiliar para regresión logística (en desarrollo)
 │   └── RegLogistica/
 │       ├── 01 - Modelo no balanceado.png         # Resultados Modelo 1
 │       ├── 02 - Modelo balanceado.png            # Resultados Modelo 2
@@ -57,7 +56,6 @@ Laboratorio 2/
 | `src/main.py` | Script principal: ETL + codificación + escalado + entrenamiento + evaluación |
 | `src/clases/DataAnalysis.py` | Clase `DataAnalysis`: carga y exploración del dataset (EDA) |
 | `src/clases/DataTransformer.py` | Clase `DataTransformer`: pipeline completo de limpieza, imputación, outliers y feature engineering |
-| `src/clases/RegresionLogistica.py` | Clase `RegresionLogistica`: auxiliar para encapsular lógica de modelado (en desarrollo) |
 | `src/clases/__main__.py` | Punto de entrada del paquete `clases` |
 | `src/RegLogistica/` | Gráficas de evaluación de los tres modelos entrenados |
 
@@ -340,14 +338,14 @@ python3 main.py
 ### Consola
 - Tabla comparativa de dtype por columna (antes y después de cada transformación).
 - Resumen estadístico completo del modelo `statsmodels` (coeficientes, p-values, intervalos de confianza).
-- Métricas de evaluación y matriz de confusión para los tres modelos sobre el conjunto de prueba.
+- Métricas de evaluación y matriz de confusión para los tres modelos sobre el conjunto de prueba y validación.
 
 ---
 
 ## Notas
 
 - `.idea/` y `.venv/` son artefactos locales y deben excluirse del control de versiones (`.gitignore`).
-- La evaluación sobre el conjunto de **validación** está disponible en `main.py` pero desactivada; se puede habilitar descomentando las líneas `evaluar_modelo(..., X_val_scaled, ...)`.
+- La evaluación sobre el conjunto de **validación** está disponible en `main.py`.
 - Las gráficas EDA se generan **siempre sobre datos crudos** para no contaminar el análisis con decisiones de limpieza previas.
 
 ---

@@ -11,13 +11,16 @@ from src.clases.DataAnalysis import DataAnalysis
 from src.clases.DataTransformer import DataTransformer
 
 
-# ── Paths ──────────────────────────────────────────────────────────────────────
+# ── Paths ────────
 path_data_raw        = "../datasets/raw/lab2_trial_conversion_users.csv"
 path_data_clean      = "../datasets/clean/lab2_trial_conversion_users_clean.csv"
 path_data_dictionary = "../datasets/raw/lab2_data_dictionary.csv"
 
-# ── ETL ────────────────────────────────────────────────────────────────────────
+# ── ETL ──────────
+data_analysis = DataAnalysis(path_data_raw)
 data_transform = DataTransformer(path_data_raw, path_data_clean, path_data_dictionary)
+
+data_analysis.EDA()
 data_transform.transform()
 data_transform.guardar_data_frame_clean()
 df = data_transform.get_dataframe_clean()
@@ -37,7 +40,7 @@ y = df[target]
 X_temp,  X_test, y_temp,  y_test = train_test_split(X, y, test_size=0.20, random_state=42, stratify=y)
 X_train, X_val,  y_train, y_val  = train_test_split(X_temp, y_temp, test_size=0.25, random_state=42, stratify=y_temp)
 
-# ── Escalado ───────────────────────────────────────────────────────────────────
+# ── Escalado ─────
 scaler = StandardScaler()
 X_train_scaled = pd.DataFrame(scaler.fit_transform(X_train), columns=X_train.columns, index=X_train.index)
 X_val_scaled   = pd.DataFrame(scaler.transform(X_val),   columns=X_val.columns,   index=X_val.index)
@@ -76,9 +79,9 @@ print("Regresion logistica no balanceada")
 model_sklearn = LogisticRegression(random_state=42, max_iter=1000,)
 model_sklearn.fit(X_train_scaled, y_train)
 
-# ── 6. Evaluación ──────────────────────────────────────────────────────────────
-#evaluar_modelo(model_sklearn, X_val_scaled,  y_val,  "VALIDACIÓN (20%)")
-evaluar_modelo(model_sklearn, X_test_scaled, y_test, "PRUEBA (20%) Modelo 1")
+# ── 6. Evaluación 
+evaluar_modelo(model_sklearn, X_val_scaled,  y_val,  "VALIDACIÓN (20%) - Modelo 1")
+evaluar_modelo(model_sklearn, X_test_scaled, y_test, "PRUEBA (20%) - Modelo 1")
 
 
 # ── 5B. Modelo predictivo (Scikit-Learn) ───────────────────────────────────────
@@ -87,8 +90,8 @@ print("Regresion logistica balanceada")
 model_sklearn = LogisticRegression(random_state=42, max_iter=1000, class_weight='balanced')
 model_sklearn.fit(X_train_scaled, y_train)
 
-# ── 6. Evaluación ──────────────────────────────────────────────────────────────
-#evaluar_modelo(model_sklearn, X_val_scaled,  y_val,  "VALIDACIÓN (20%)")
+# 6. Evaluación
+evaluar_modelo(model_sklearn, X_val_scaled,  y_val,  "VALIDACIÓN (20%) - Modelo 2")
 evaluar_modelo(model_sklearn, X_test_scaled, y_test, "PRUEBA (20%) - Modelo 2")
 
 
@@ -127,6 +130,6 @@ X_test_m3  = X_test_scaled[cols_modelo3]
 model3 = LogisticRegression(random_state=42, max_iter=1000, class_weight='balanced')
 model3.fit(X_train_m3, y_train)
 
-# evaluar_modelo(model3, X_val_m3,  y_val,  "VALIDACIÓN (20%) — Modelo 3")
+evaluar_modelo(model3, X_val_m3,  y_val,  "VALIDACIÓN (20%) — Modelo 3")
 evaluar_modelo(model3, X_test_m3, y_test, "PRUEBA (20%) — Modelo 3")
 
