@@ -64,8 +64,8 @@ Extracción → EDA → Limpieza → Feature Engineering → Modelado → Evalua
 
 ## Análisis Exploratorio de Datos (EDA)
 
-> **Criterio de diseño:** todas las gráficas se generan sobre el **dataset crudo** sin ninguna transformación previa.  
-> Las inconsistencias visibles (mayúsculas mixtas, símbolos `$`/`%`, categorías duplicadas, etc.) son intencionales: sirven como insumo para definir las transformaciones del paso siguiente.  
+> **Criterio de diseño:** todas las gráficas se generan sobre el **dataset crudo** sin ninguna transformación previa, 
+> para poder identificar claramente los problemas originales de los datos (nulos, outliers, inconsistencias) y tomar decisiones informadas sobre la limpieza y transformación.
 > Las gráficas se producen ejecutando `DataAnalysis.EDA()` desde `src/main.py` y se guardan automáticamente en la carpeta `EDA/`.
 
 ---
