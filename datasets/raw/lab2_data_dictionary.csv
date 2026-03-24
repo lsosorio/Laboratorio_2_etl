@@ -1,0 +1,28 @@
+﻿column_name,data_type,description
+user_id,string,Identificador único del usuario. Puede existir duplicación intencional en algunos registros.
+signup_date,string/date,Fecha de inicio del trial. Hay formatos mixtos de fecha.
+trial_end_date,string/date,Fecha estimada de fin del trial. Hay formatos mixtos de fecha.
+trial_length_days,integer,Duración del trial en días.
+age,numeric,Edad del usuario.
+country,categorical,País del usuario. Presenta inconsistencias de escritura y mayúsculas.
+gender,categorical,Género reportado.
+device_type,categorical,Tipo de dispositivo principal.
+acquisition_channel,categorical,Canal de adquisición del usuario.
+city_tier,categorical,Nivel de ciudad asociado al usuario.
+preferred_plan_before_conversion,categorical,Plan de interés mostrado por el usuario durante el trial.
+days_active_trial,integer,Número de días con actividad durante el periodo de prueba.
+sessions_count,integer,Cantidad total de sesiones registradas.
+avg_session_minutes,numeric,Duración promedio de las sesiones en minutos.
+features_used,integer,Cantidad de funcionalidades distintas utilizadas.
+support_tickets,integer,Número de tickets de soporte generados.
+emails_opened,integer,Cantidad de correos abiertos.
+webinar_attended,binary,"1 si asistió a webinar, 0 en caso contrario."
+payment_method_on_file,binary,"1 si registró método de pago durante el trial, 0 en caso contrario."
+referred_friend,binary,"1 si refirió a otro usuario, 0 si no."
+discount_offered_pct,numeric/string,Descuento ofrecido. Algunos valores incluyen el símbolo %.
+plan_page_views,integer,Número de visitas a la página de planes.
+last_activity_gap_days,integer,Días entre la última actividad y el cierre del trial.
+satisfaction_score,numeric,Puntaje de satisfacción reportado por el usuario.
+monthly_income_usd,numeric/string,Ingreso mensual estimado en USD. Algunos valores incluyen símbolo $.
+converted_to_paid_plan,binary,"Variable objetivo: 1 si el usuario tomó un plan pagado, 0 si no."
+selected_plan,categorical,Plan finalmente seleccionado. Vale 'none' si no hubo conversión.
