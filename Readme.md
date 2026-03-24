@@ -268,13 +268,14 @@ Cada modelo se evalúa sobre el **conjunto de prueba (20%)** con las siguientes 
 ### Modelo 3 — Balanceado (variables más significativas)
 ![Modelo 3](src/RegLogistica/03%20-%20Modelo%20variables%20mas%20significativas.png)
 
-### Conclusiones
+## Conclusiones
 Para cerrar este laboratorio, la principal lección que nos llevo es que construir un buen modelo predictivo no se trata solamente de meter datos en Scikit-Learn y celebrar si el Accuracy da alto. 
 Durante la fase del ETL, nos dimos cuenta de lo fácil que es arruinar un proyecto desde el principio si uno simplemente le da dropna() a los valores nulos o borra los valores atípicos. 
 Tomarse el tiempo de limpiar los datos con criterio técnico (como usar la mediana o limitar los extremos con el método IQR) fue lo que realmente nos permitió salvar la información de los usuarios sin meter ruido falso.
 Por otro lado, la evolución por la que pasaron los tres modelos nos dejó clarísimo el impacto que tienen las decisiones que tomamos en el código. Fue un golpe de realidad ver cómo el primer modelo nos engañaba con una exactitud casi del 80%, 
 cuando en la práctica estaba dejando escapar a casi todos los clientes que sí querían pagar. Balancear las clases fue una decisión obligada para este laboratorio porque hay desbalance significativo entre los que adquiere el plan y los que no.
 Finalmente, el ejercicio de limpiar las variables usando Statsmodels fue el toque de gracia. Nos sirvio para entender que no todas las variables que tenemos a disposición son realmente útiles para predecir la conversión, y que a veces menos es más.
+
 ---
 
 ## Requisitos
