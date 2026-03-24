@@ -411,23 +411,3 @@ class DataAnalysis:
 
         plt.tight_layout(rect=(0, 0, 1, 0.95))
         self.__save(fig, os.path.join(output_path, '11_deteccion_outliers.png'))
-
-        
-        # GRÁFICA 12 — Matriz de correlación
-        # (usa solo columnas ya numéricas en el CSV; sin transformar)
-        
-        corr_df = df[numeric_raw].copy()
-        corr_matrix = corr_df.corr()
-
-        fig, ax = plt.subplots(figsize=(16, 13))
-        mask = np.triu(np.ones_like(corr_matrix, dtype=bool))
-        sns.heatmap(corr_matrix, mask=mask, annot=True, fmt='.2f',
-                    cmap='coolwarm', center=0, linewidths=0.5,
-                    annot_kws={'size': 7}, ax=ax)
-        ax.set_title('Matriz de Correlación – columnas numéricas del CSV crudo\n'
-                     '(monthly_income_usd y discount_offered_pct excluidas por tener $/%)',
-                     fontsize=12, fontweight='bold')
-        plt.xticks(rotation=45, ha='right', fontsize=8)
-        plt.yticks(fontsize=8)
-        plt.tight_layout()
-        self.__save(fig, os.path.join(output_path, '12_matriz_correlacion.png'))
