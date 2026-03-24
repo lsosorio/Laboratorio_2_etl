@@ -348,7 +348,6 @@ python3 main.py
 
 - `.idea/` y `.venv/` son artefactos locales y deben excluirse del control de versiones (`.gitignore`).
 - La evaluación sobre el conjunto de **validación** está disponible en `main.py` pero desactivada; se puede habilitar descomentando las líneas `evaluar_modelo(..., X_val_scaled, ...)`.
-- `RegresionLogistica.py` es una clase auxiliar actualmente en desarrollo para encapsular la lógica de modelado fuera del script principal.
 - Las gráficas EDA se generan **siempre sobre datos crudos** para no contaminar el análisis con decisiones de limpieza previas.
 
 ---
