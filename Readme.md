@@ -274,7 +274,7 @@ Durante la fase del ETL, nos dimos cuenta de lo fácil que es arruinar un proyec
 Tomarse el tiempo de limpiar los datos con criterio técnico (como usar la mediana o limitar los extremos con el método IQR) fue lo que realmente nos permitió salvar la información de los usuarios sin meter ruido falso.
 Por otro lado, la evolución por la que pasaron los tres modelos nos dejó clarísimo el impacto que tienen las decisiones que tomamos en el código. Fue un golpe de realidad ver cómo el primer modelo nos engañaba con una exactitud casi del 80%, 
 cuando en la práctica estaba dejando escapar a casi todos los clientes que sí querían pagar. Balancear las clases fue una decisión obligada para este laboratorio porque hay desbalance significativo entre los que adquiere el plan y los que no.
-Finalmente, el ejercicio de limpiar las variables usando Statsmodels fue el toque de gracia. Nos sirvio para entender que no todas las variables que tenemos a disposición son realmente útiles para predecir la conversión, y que a veces menos es más.
+Finalmente, el ejercicio de limpiar las variables usando Statsmodels fue una jugada que nos sirvio para entender que no todas las variables que tenemos a disposición son realmente útiles para predecir la conversión.
 
 ---
 
